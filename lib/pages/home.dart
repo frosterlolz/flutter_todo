@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/includes/NavBar.dart';
 
 // stless/stfull создает сразу класс (почитать поподробнее)
 
@@ -16,6 +17,7 @@ class _HomeState extends State<Home> {
   String? _userToDo;
   List todoList = [];
 
+
   @override
   void initState() {
     // TODO: implement initState
@@ -24,37 +26,12 @@ class _HomeState extends State<Home> {
     todoList.addAll(['Wake up', 'Wash dishes', 'Buy milk', 'Go for walk']);
   }
 
-  void _menuOpen(){ // реализуем выезжающее меню
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (BuildContext context) {
-        return Scaffold(
-          appBar: AppBar(title: Text('Menu'),),
-          body: Row(
-            children: [
-              ElevatedButton(onPressed: (){
-                Navigator.pop(context);
-                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-              }, child: Text('На главную')),
-              ElevatedButton(onPressed: (){}, child: Text('пустышка')),
-              ElevatedButton(onPressed: (){
-                Navigator.pop(context);
-                Navigator.pushReplacementNamed(context, '/profile');
-              }, child: Text('Профиль')),
-              // можно добавить еще кнопок
-              Padding(padding: EdgeInsets.only(left:15)),
-            ],
-          )
-        );
-      })
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold( // возвращает некий слой
+      drawer: NavBar(),
       backgroundColor: Colors.grey[300],
-      appBar: AppBar(title: const Text(_title), centerTitle: true, // HEADER
-      actions: [IconButton(onPressed: _menuOpen, icon: Icon(Icons.menu_rounded))],), // кнопки действив AppBar
+      appBar: AppBar(title: const Text(_title), centerTitle: true,), // HEADER
       body: ListView.builder( // ListView позволяет создавать объекты в формате списка
           itemCount: todoList.length, // длина массива/списка
           itemBuilder: (BuildContext context, int index) // перебирает полностью весь список
@@ -111,3 +88,35 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
+
+
+
+
+// void _menuOpen(){ // реализуем выезжающее меню
+//   Navigator.of(context).push(
+//     MaterialPageRoute(builder: (BuildContext context) {
+//       return Scaffold(
+//           appBar: AppBar(title: Text('Menu'),),
+//           body: Row(
+//             children: [
+//               ElevatedButton(onPressed: ()
+//               {
+//                 Navigator.pop(context);
+//                 Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+//               },
+//                   child: Text('На главную')),
+//             ElevatedButton(onPressed: (){}, child: Text('пустышка')),
+//             ElevatedButton(onPressed: (){
+//               Navigator.pop(context);
+//               Navigator.pushReplacementNamed(context, '/profile');
+//             }, child: Text('Профиль')),
+//             // можно добавить еще кнопок
+//             Padding(padding: EdgeInsets.only(left:15)),
+//           ],
+//         )
+//       );
+//     })
+//   );
+// }

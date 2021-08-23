@@ -16,7 +16,7 @@ class MainScreen extends StatelessWidget {
             ElevatedButton(onPressed: (){
               Navigator.pushReplacementNamed(context, '/todo'); // pushNamed открывает страницу поверх (andremoveuntil- стрелки не будет) (то что сейчас - )
             },
-              child: Text('Перейти далее'),)
+              child: Text('Мои дела'),)
           ],
         ),
     );

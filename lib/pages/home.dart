@@ -36,6 +36,10 @@ class _HomeState extends State<Home> {
                 Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
               }, child: Text('На главную')),
               ElevatedButton(onPressed: (){}, child: Text('пустышка')),
+              ElevatedButton(onPressed: (){
+                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context, '/profile');
+              }, child: Text('Профиль')),
               // можно добавить еще кнопок
               Padding(padding: EdgeInsets.only(left:15)),
             ],

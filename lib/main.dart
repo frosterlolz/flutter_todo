@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/pages/home.dart';
 import 'package:flutter_todo/pages/main_screen.dart';
+import 'package:flutter_todo/pages/profile.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -12,5 +13,6 @@ void main() => runApp(MaterialApp(
   routes: {
     '/': (context) => MainScreen(),
     '/todo': (context) => Home(),
+    '/profile': (context) => Profile(),
   },
 ));

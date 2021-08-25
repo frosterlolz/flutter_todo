@@ -23,11 +23,8 @@ class _ProfileState extends State<Profile> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/profile', (route) => false);
-              },
               icon: const Icon(Icons.account_circle_outlined),
-              tooltip: 'Профиль',
+              tooltip: 'Профиль', onPressed: () {  },
           )
         ],
       ), // HEADER

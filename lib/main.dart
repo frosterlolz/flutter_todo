@@ -3,6 +3,7 @@ import 'package:flutter_todo/pages/home.dart';
 import 'package:flutter_todo/pages/main_screen.dart';
 import 'package:flutter_todo/pages/profile.dart';
 import 'package:flutter_todo/pages/customscrollview.dart';
+import 'package:flutter_todo/pages/test.dart';
 
 
 void main() => runApp(MaterialApp(
@@ -15,6 +16,7 @@ void main() => runApp(MaterialApp(
     '/': (context) => MainScreen(),
     '/todo': (context) => Home(),
     '/profile': (context) => Profile(),
-    '/customScroller': (context) => CustomScroller(),
+    '/customScroller': (context) => BottomNavBar(),
+    '/test': (context) => Test(),
   },
 ));

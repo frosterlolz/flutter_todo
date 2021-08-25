@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo/pages/home.dart';
-
-
-var count = Home;
 
 class NavBar extends StatefulWidget {
   const NavBar({Key? key}) : super(key: key);

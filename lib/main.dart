@@ -8,8 +8,10 @@ import 'package:flutter_todo/pages/test.dart';
 
 void main() => runApp(MaterialApp(
   theme: ThemeData(
-    primaryColor: Colors.lightBlue[700], // основной цвет приложения
+    primaryColor: Colors.blue.shade300, // основной цвет приложения
+    dividerColor: Colors.black,
   ),
+  // home: EditProfilePage(),
   initialRoute: '/',
   //home: MainScreen(), // основная страница
   routes: {
@@ -20,3 +22,5 @@ void main() => runApp(MaterialApp(
     '/test': (context) => Test(),
   },
 ));
+
+// продолжить с ВИДЕО https://www.youtube.com/watch?v=ZfSiFtT0z_I

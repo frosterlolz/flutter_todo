@@ -4,7 +4,7 @@ import 'package:flutter_todo/includes/NavBar.dart';
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
-  static const String _title = 'My first Dart Project';
+  static const String _title = 'Главная';
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +14,7 @@ class MainScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text(_title),
           centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/profile', (route) => false);},
-              icon: const Icon(Icons.account_circle_outlined),
-              tooltip: 'Профиль',
-            )
-          ],),
+        ),
       body: Column(
         children: [
           Text('Main Screen', style: TextStyle(color: Colors.white),),

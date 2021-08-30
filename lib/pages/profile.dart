@@ -1,5 +1,8 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/model/user.dart';
+import 'package:flutter_todo/pages/edit_profile_page.dart';
 import 'package:flutter_todo/utils/user_preferences.dart';
 import 'package:flutter_todo/widget/appbar_widget.dart';
 import 'package:flutter_todo/widget/profile_widget.dart';
@@ -18,23 +21,31 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
-    return Scaffold(
-      appBar: buildAppBar(context),
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          ProfileWidget(
-            imagePath: user.imagePath,
-            onClicked: () async {},
+    return ThemeSwitchingArea(
+      child: Builder(
+          builder: (context) => Scaffold(
+            appBar: buildAppBar(context),
+            body: ListView(
+              physics: BouncingScrollPhysics(),
+              children: [
+                ProfileWidget(
+                  imagePath: user.imagePath,
+                  onClicked: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => EditProfilePage()),
+                    );
+                  },
+                ),
+                const SizedBox(height: 24), // отступ
+                buildName(user),
+                const SizedBox(height: 24),
+                NumbersWidget(),
+                const SizedBox(height: 48),
+                buildAbout(user),
+              ],
+            ),
           ),
-          const SizedBox(height: 24), // отступ
-          buildName(user),
-          const SizedBox(height: 24),
-          NumbersWidget(),
-          const SizedBox(height: 48),
-          buildAbout(user),
-        ],
-      ),
+      )
     );
   }
 

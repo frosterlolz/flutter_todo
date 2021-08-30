@@ -1,29 +1,24 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_todo/includes/NavBar.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
-  static const String _title = 'Главная';
+  static const String _title = 'Новости';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        drawer: NavBar(),
+    return ThemeSwitchingArea(
+        child: Builder(builder: (context) =>Scaffold(
+        //drawer: NavBar(),
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
           title: const Text(_title),
           centerTitle: true,
         ),
-      body: Column(
-        children: [
-          Text('Main Screen', style: TextStyle(color: Colors.white),),
-          ElevatedButton(onPressed: (){
-            Navigator.pushReplacementNamed(context, '/todo'); // pushNamed открывает страницу поверх (andremoveuntil- стрелки не будет) (то что сейчас - )
-          },
-            child: Text('Мои дела'),)
-        ],
-      ),
+      body: Text('НОВОСТИ')
+    ),
+    ),
     );
   }
 }

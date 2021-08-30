@@ -1,3 +1,4 @@
+import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -26,7 +27,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(length: 2, 
+    return ThemeSwitchingArea(
+        child: Builder(builder: (context) => DefaultTabController(length: 2,
         child: Scaffold(
           body: NestedScrollView(
               floatHeaderSlivers: true,
@@ -137,6 +139,8 @@ class _HomeState extends State<Home> {
     ),
     ),
     ),
+    )
+    )
     );
   }
 }
